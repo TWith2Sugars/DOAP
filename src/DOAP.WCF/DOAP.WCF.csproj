@@ -33,15 +33,37 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel.Selectors" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WcfRestContrib">
+      <HintPath>..\..\lib\WcfRestContrib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IOAuthAuthenticationHandler.cs" />
+    <Compile Include="OAuthAuthenticationConfigurationAttribute.cs" />
+    <Compile Include="OAuthAuthenticationConfigurationBehavior.cs" />
+    <Compile Include="OperationOAuthAuthenticationAttribute.cs" />
+    <Compile Include="OperationOAuthAuthenticationBehavior.cs" />
+    <Compile Include="OperationOAuthAuthenticationInvoker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceOAuthAuthenticationAttribute.cs" />
+    <Compile Include="ServiceOAuthAuthenticationBehavior.cs" />
+    <Compile Include="ServiceOAuthAuthenticationInspector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DOAP\DOAP.csproj">
+      <Project>{D709D6F5-9F2E-494B-BE7B-10CD408B300A}</Project>
+      <Name>DOAP</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

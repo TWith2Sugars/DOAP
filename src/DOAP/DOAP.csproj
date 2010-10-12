@@ -34,6 +34,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,7 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessToken.cs" />
+    <Compile Include="AuthorisationCode.cs" />
+    <Compile Include="Context\HttpOAuthContext.cs" />
+    <Compile Include="Context\IAuthorisationContext.cs" />
+    <Compile Include="Context\IContext.cs" />
+    <Compile Include="Context\ITokenContext.cs" />
+    <Compile Include="ErrorCode.cs" />
+    <Compile Include="GrantType.cs" />
+    <Compile Include="IClient.cs" />
+    <Compile Include="OAuthFactory.cs" />
+    <Compile Include="OAuthProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\IAssertionProvider.cs" />
+    <Compile Include="Provider\IAuthorisationProvider.cs" />
+    <Compile Include="Provider\IClientProvider.cs" />
+    <Compile Include="Provider\IPasswordProvider.cs" />
+    <Compile Include="Provider\ITokenProvider.cs" />
+    <Compile Include="ResponseType.cs" />
+    <Compile Include="Response\AccessTokenResponse.cs" />
+    <Compile Include="Response\AuthorisationResponse.cs" />
+    <Compile Include="Response\OAuthResponse.cs" />
+    <Compile Include="Response\Response.cs" />
+    <Compile Include="Response\VerificationResponse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
