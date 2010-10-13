@@ -301,7 +301,13 @@ namespace DOAP
     /// <returns>The response of the verification process</returns>
     public VerificationResponse<TResourceOwnerIdentity> VerifyToken(string token, string scope)
     {
-      var accessToken = this.tokenProvider.FindAccessToken(token);
+      if (string.IsNullOrWhiteSpace(token) || !token.StartsWith("OAuth") || !token.Contains(' '))
+      {
+        return new VerificationResponse<TResourceOwnerIdentity> { ErrorCode = ErrorCode.InvalidToken };
+      }
+
+      var preVerifiedToken = token.Split(' ');
+      var accessToken = this.tokenProvider.FindAccessToken(preVerifiedToken[1]);
       if(accessToken == null)
       {
         return new VerificationResponse<TResourceOwnerIdentity> { ErrorCode = ErrorCode.InvalidToken };
