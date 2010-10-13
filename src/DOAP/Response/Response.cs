@@ -31,12 +31,15 @@ namespace DOAP.Response
         case ErrorCode.None:
           return HttpStatusCode.OK;
         case ErrorCode.InvalidToken:
+        case ErrorCode.InvalidRequest:
         case ErrorCode.ExpiredToken:
         case ErrorCode.InvalidClient:
-        case ErrorCode.InsufficientScope:
         case ErrorCode.AccessDenied:
         case ErrorCode.UnAuthorizedClient:
           return HttpStatusCode.Unauthorized;
+
+        case ErrorCode.InsufficientScope:
+          return HttpStatusCode.Forbidden;
 
         default:
           return HttpStatusCode.BadRequest;
