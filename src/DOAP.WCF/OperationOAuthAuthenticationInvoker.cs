@@ -18,6 +18,7 @@ namespace DOAP.WCF
         private readonly IOAuthAuthenticationHandler _handler;
         private readonly bool _requiresTransportLayerSecurity;
         private readonly string _source;
+        private readonly bool _allowAnonymous;
 
         // ────────────────────────── Constructors ──────────────────────────
 
@@ -25,12 +26,14 @@ namespace DOAP.WCF
             IOperationInvoker invoker,
             IOAuthAuthenticationHandler handler,
             bool requiresTransportLayerSecurity,
-            string source)
+            string source,
+          bool allowAnonymous)
         {
             _invoker = invoker;
             _handler = handler;
             _requiresTransportLayerSecurity = requiresTransportLayerSecurity;
             _source = source;
+          _allowAnonymous = allowAnonymous;
         }
 
         // ────────────────────────── IOperationInvoker Members ──────────────────────────
@@ -46,7 +49,8 @@ namespace DOAP.WCF
                 inputs,
                 OperationContext.Current.HasTransportLayerSecurity(),
                 _requiresTransportLayerSecurity,
-                _source));
+                _source,
+                _allowAnonymous));
 
             return _invoker.Invoke(instance, inputs, out outputs);
         }

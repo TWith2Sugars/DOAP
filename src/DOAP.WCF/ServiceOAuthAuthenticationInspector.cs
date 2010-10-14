@@ -16,17 +16,20 @@ namespace DOAP.WCF
         private readonly IOAuthAuthenticationHandler _handler;
         private readonly bool _requiresTransportLayerSecurity;
         private readonly string _scope;
+        private readonly bool _allowAnonymous;
 
         // ────────────────────────── Constructors ──────────────────────────
 
         public ServiceOAuthAuthenticationInspector(
             IOAuthAuthenticationHandler handler,
             bool requiresTransportLayerSecurity,
-            string scope)
+            string scope,
+          bool allowAnonymous)
         {
             _handler = handler;
             _requiresTransportLayerSecurity = requiresTransportLayerSecurity;
             _scope = scope;
+          _allowAnonymous = allowAnonymous;
         }
 
         // ────────────────────────── IDispatchMessageInspector Members ──────────────────────────
@@ -39,7 +42,8 @@ namespace DOAP.WCF
                 new object[] {},
                 OperationContext.Current.HasTransportLayerSecurity(),
                 _requiresTransportLayerSecurity,
-                _scope));
+                _scope,
+                _allowAnonymous));
 
             return null;
         }

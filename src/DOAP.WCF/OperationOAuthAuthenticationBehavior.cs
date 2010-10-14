@@ -14,6 +14,7 @@ namespace DOAP.WCF
   public class OperationOAuthAuthenticationBehavior : IOperationBehavior
   {
     public string Scope { get; set; }
+    public bool AllowAnonymous { get; set; }
     // ────────────────────────── IOperationBehavior Members ──────────────────────────
 
     public void ApplyDispatchBehavior(OperationDescription operationDescription,
@@ -39,7 +40,8 @@ namespace DOAP.WCF
           dispatchOperation.Invoker,
           behavior.AuthenticationHandler,
           behavior.RequireSecureTransport,
-           scopeToUse);
+           scopeToUse, 
+           AllowAnonymous;
     }
 
     public void ApplyClientBehavior(OperationDescription operationDescription,

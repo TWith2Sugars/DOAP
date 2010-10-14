@@ -8,10 +8,11 @@ namespace DOAP.WCF
     public class ServiceOAuthAuthenticationAttribute : Attribute, IServiceBehavior, IContractBehavior
     {
 
-          public ServiceOAuthAuthenticationAttribute(string scope = "")
+          public ServiceOAuthAuthenticationAttribute(string scope = "", bool allowAnonymous = false)
           {
             this._behavior = new ServiceOAuthAuthenticationBehavior();
             this._behavior.Scope = scope;
+            this._behavior.AllowAnonymous = allowAnonymous;
           }
 
       // ────────────────────────── Private Fields ──────────────────────────

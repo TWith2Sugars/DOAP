@@ -10,6 +10,7 @@ namespace DOAP.WCF
     public class ServiceOAuthAuthenticationBehavior : IServiceBehavior, IContractBehavior 
     {
       public string Scope { get; set; }
+      public bool AllowAnonymous { get; set; }
 
         // ────────────────────────── Private Members ──────────────────────────
 
@@ -38,7 +39,8 @@ namespace DOAP.WCF
                         new ServiceOAuthAuthenticationInspector(
                             behavior.AuthenticationHandler,
                             behavior.RequireSecureTransport,
-                            scopeToUse));
+                            scopeToUse,
+                            this.AllowAnonymous));
         }
 
         public void Validate(ServiceDescription serviceDescription, System.ServiceModel.ServiceHostBase serviceHostBase) { }
@@ -66,7 +68,8 @@ namespace DOAP.WCF
                     new ServiceOAuthAuthenticationInspector(
                         behavior.AuthenticationHandler,
                         behavior.RequireSecureTransport,
-                        scopeToUse));
+                        scopeToUse,
+                        AllowAnonymous));
         }
 
         public void Validate(ContractDescription contractDescription, ServiceEndpoint endpoint) { }

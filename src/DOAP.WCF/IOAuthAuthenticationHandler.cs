@@ -15,6 +15,7 @@ namespace DOAP.WCF
             object[] parameters,
             bool secure,
             bool requiresTransportLayerSecurity,
-            string scope);
+            string scope,
+            bool allowAnonymous);
   }
 }

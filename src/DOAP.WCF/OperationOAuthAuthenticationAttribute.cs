@@ -11,10 +11,11 @@ namespace DOAP.WCF
   public class OperationOAuthAuthenticationAttribute : Attribute, IOperationBehavior
   {
 
-    public OperationOAuthAuthenticationAttribute(string scope = "")
+    public OperationOAuthAuthenticationAttribute(string scope = "", bool allowAnonymous = false)
     {
       this._behavior = new OperationOAuthAuthenticationBehavior();
       this._behavior.Scope = scope;
+      this._behavior.AllowAnonymous = allowAnonymous;
     }
 
     // ────────────────────────── Private Fields ──────────────────────────
