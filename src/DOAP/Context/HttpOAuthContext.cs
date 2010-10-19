@@ -381,7 +381,7 @@ namespace DOAP.Context
     /// <returns>The value in the parameter field</returns>
     private string AccessParameter(string parameter)
     {
-      var result = this.httpContext.Request[parameter];
+      var result = this.httpContext.Request.Params[parameter];
       if (result == null)
       {
         return null;
