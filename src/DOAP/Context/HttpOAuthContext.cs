@@ -324,10 +324,13 @@ namespace DOAP.Context
         if (this.requestedScope == null)
         {
           this.requestedScope = new List<string>();
-          var scopes = this.AccessParameter(ScopeParameter) ?? string.Empty;
-          foreach(var scope in scopes.Split(' '))
+          var scopes = this.AccessParameter(ScopeParameter);
+          if (scopes != null)
           {
-            this.requestedScope.Add(scope.Trim());
+            foreach (var scope in scopes.Split(' '))
+            {
+              this.requestedScope.Add(scope.Trim());
+            }
           }
         }
 

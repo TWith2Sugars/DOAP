@@ -223,7 +223,7 @@ namespace DOAP
           break;
         case GrantType.Assertion:
           validRequest = this.VerifyAssertionParameters(tokenContext, out resourceOwnerIdentity);
-          requiresRefreshToken = false;
+          requiresRefreshToken = this.assertionProvider.RefreshTokenRequired;
           break;
         case GrantType.RefreshToken:
           validRequest = this.VerifyRefreshTokenParameters(tokenContext, out refreshToken, out resourceOwnerIdentity);

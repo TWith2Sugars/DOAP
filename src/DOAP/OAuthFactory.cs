@@ -41,7 +41,7 @@ namespace DOAP
     public static OAuthProvider<TClientIdentity, TResourceOwner> BuildOAuthProvider<TClientIdentity, TResourceOwner>(
       IClientProvider<TClientIdentity> clientProvider,
       ITokenProvider<TClientIdentity, TResourceOwner> tokenProvider,
-      IEnumerable<string> supportedScopes,
+      IEnumerable<string> supportedScopes = null,
       IAuthorisationProvider<TClientIdentity, TResourceOwner> authorisationProvider = null,
       IPasswordProvider<TResourceOwner> passwordProvider = null,
       IAssertionProvider<TResourceOwner> assertionProvider = null,
@@ -82,7 +82,7 @@ namespace DOAP
                                                                      passwordProvider,
                                                                      assertionProvider,
                                                                      supportedGrantTypes,
-                                                                     supportedScopes,
+                                                                     supportedScopes??new List<string>(),
                                                                      supportedResponseTypes,
                                                                      accessExpiration ??
                                                                      DefaultAccessTokenExpirationTime,

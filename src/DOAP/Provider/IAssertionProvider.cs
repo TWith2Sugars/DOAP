@@ -18,5 +18,13 @@ namespace DOAP.Provider
     /// <param name="assertionType">Type of the assertion.</param>
     /// <returns>The resource owner id</returns>
     TResourceOwnerIdentity ValidateAssertion(string assertion, string assertionType);
+
+    /// <summary>
+    /// Gets a value indicating whether [refresh token required].
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if [refresh token required]; otherwise, <c>false</c>.
+    /// </value>
+    bool RefreshTokenRequired { get; }
   }
 }
