@@ -9,7 +9,7 @@ using DOAP.WCF;
 using DOAP.WCFExample.Provider;
 using WcfRestContrib.ServiceModel.Web.Exceptions;
 
-namespace DOAP.WCFExample
+namespace DOAP.WCFExample.OAuth
 {
   using System.IdentityModel.Selectors;
   using System.Security.Principal;

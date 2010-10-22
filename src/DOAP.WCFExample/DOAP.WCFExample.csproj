@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System" />
@@ -69,10 +70,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="OAuthHandler.cs" />
+    <Compile Include="OAuthService.cs" />
+    <Compile Include="OAuth\OAuthHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\ClientProvider.cs" />
     <Compile Include="Provider\PasswordProvider.cs" />
+    <Compile Include="Provider\TokenProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
