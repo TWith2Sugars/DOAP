@@ -76,6 +76,7 @@
     <Compile Include="Provider\ClientProvider.cs" />
     <Compile Include="Provider\PasswordProvider.cs" />
     <Compile Include="Provider\TokenProvider.cs" />
+    <Compile Include="SampleService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
