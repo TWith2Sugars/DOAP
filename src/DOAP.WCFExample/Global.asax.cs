@@ -16,6 +16,7 @@ namespace DOAP.WCFExample
     {
       // Edit the base address of Service1 by replacing the "Service1" string below
       RouteTable.Routes.Add(new ServiceRoute("OAuth", new WebServiceHostFactory(), typeof(OAuthService)));
+      RouteTable.Routes.Add(new ServiceRoute("Example", new WebServiceHostFactory(), typeof(SampleService)));
     }
   }
 }
