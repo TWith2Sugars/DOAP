@@ -41,7 +41,7 @@ namespace DOAP.WCF
           behavior.AuthenticationHandler,
           behavior.RequireSecureTransport,
            scopeToUse, 
-           AllowAnonymous;
+           AllowAnonymous);
     }
 
     public void ApplyClientBehavior(OperationDescription operationDescription,

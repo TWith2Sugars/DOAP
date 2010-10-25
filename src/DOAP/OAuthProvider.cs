@@ -313,7 +313,7 @@ namespace DOAP
 
       }
 
-      if(!accessToken.Scope.Contains(scope))
+      if (this.supportedScopes.Any() && !accessToken.Scope.Contains(scope))
       {
         return new VerificationResponse<TResourceOwnerIdentity> { ErrorCode = ErrorCode.InsufficientScope };
       }
@@ -510,7 +510,7 @@ namespace DOAP
 
       refreshToken = this.tokenProvider.FindRefreshToken(tokenContext.RefreshToken);
       // check the token is valid
-      if (refreshToken == null || EqualityComparer<TClientIdentity>.Default.Equals(refreshToken.ClientId, tokenContext.ClientId))
+      if (refreshToken == null || !EqualityComparer<TClientIdentity>.Default.Equals(refreshToken.ClientId, tokenContext.ClientId))
       {
         return ErrorCode.InvalidGrant;
       }
